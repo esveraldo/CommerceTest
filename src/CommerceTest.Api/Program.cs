@@ -1,13 +1,25 @@
+using CommerceTeste.Infra.Extensions;
+using FluentValidation.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddMvc();
+builder.Services.AddControllers().AddFluentValidation();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddContext(builder.Configuration);
+builder.Services.AddRepositories();
+builder.Services.AddServices();
+builder.Services.AddUnitOfWork();
+builder.Services.AddRegisterAutoMapper();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+builder.Services.AddContext(builder.Configuration);
+builder.Services.AddControllers();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -18,6 +30,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

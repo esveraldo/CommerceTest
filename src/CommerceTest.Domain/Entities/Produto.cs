@@ -4,7 +4,7 @@ namespace CommerceTest.Domain.Entities
 {
     public class Produto : Entity
     {
-        public Produto(string? nome, string? descricao, string? preco)
+        public Produto(string? nome, string? descricao, decimal? preco)
         {
             Nome = nome;
             Descricao = descricao;
@@ -13,7 +13,7 @@ namespace CommerceTest.Domain.Entities
 
         public string? Nome { get; private set; }
         public string? Descricao { get; private set; }
-        public string? Preco { get; private set; }
+        public decimal? Preco { get; private set; }
 
         //EF
         public virtual ICollection<Pedido> Pedidos { get; set; }
