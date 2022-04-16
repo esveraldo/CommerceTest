@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommerceTest.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommerceTest.CrosCutting", "src\CommerceTest.CrosCutting\CommerceTest.CrosCutting.csproj", "{8CA4A1DE-0F50-42B2-902D-B7F076B047E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommerceTeste.Infra", "src\CommerceTest.Infra\CommerceTeste.Infra\CommerceTeste.Infra.csproj", "{12D40459-A0E0-4ECC-9687-6031A026D0C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommerceTeste.Infra", "src\CommerceTest.Infra\CommerceTeste.Infra\CommerceTeste.Infra.csproj", "{12D40459-A0E0-4ECC-9687-6031A026D0C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

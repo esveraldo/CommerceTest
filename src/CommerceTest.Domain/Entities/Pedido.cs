@@ -5,13 +5,12 @@ namespace CommerceTest.Domain.Entities
 {
     public class Pedido : Entity
     {
-        public Pedido(DateTime dataDoPedido, decimal valorTotal, EStatus status, string? observacoes, Guid pedidoId)
+        public Pedido(DateTime dataDoPedido, decimal valorTotal, EStatus status, string? observacoes)
         {
             DataDoPedido = dataDoPedido;
             ValorTotal = valorTotal;
             Status = status;
-            Observacoes = observacoes;
-            PedidoId = pedidoId;    
+            Observacoes = observacoes;    
         }
 
         public DateTime DataDoPedido { get; private set; }
@@ -20,8 +19,8 @@ namespace CommerceTest.Domain.Entities
         public string? Observacoes { get; private set; }
 
         //EF
-        public Pedido Pedidos { get; set; }
-        public virtual Guid PedidoId { get; private set; }
+        public Cliente Cliente { get; set; }
+        public virtual Guid ClienteId { get; private set; }
         public virtual ICollection<Produto> Produtos { get; set; }
         public virtual ICollection<PedidoProduto> PedidoProdutos { get; set; }
 

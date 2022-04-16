@@ -6,10 +6,12 @@ namespace CommerceTest.Domain.Entities
 {
     public class Cliente : Entity
     {
-        public Cliente(string? nome, string? ddd, string? telefone, Endereco? endereco, EDocumento documento, Guid userId)
+        protected Cliente() {}
+
+        public Cliente(string? nome, string? dDD, string? telefone, Endereco? endereco, EDocumento documento, Guid userId)
         {
             Nome = nome;
-            DDD = ddd;
+            DDD = dDD;
             Telefone = telefone;
             Endereco = endereco;
             Documento = documento;

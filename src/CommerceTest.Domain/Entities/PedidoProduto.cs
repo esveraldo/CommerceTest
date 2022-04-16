@@ -2,7 +2,7 @@
 
 namespace CommerceTest.Domain.Entities
 {
-    public class PedidoProduto
+    public class PedidoProduto : Entity
     {
         public PedidoProduto(Guid pedidoId, Guid produtoId)
         {
