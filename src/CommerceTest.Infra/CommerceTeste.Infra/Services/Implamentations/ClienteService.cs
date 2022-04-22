@@ -1,7 +1,8 @@
-﻿
+﻿  
 using AutoMapper;
 using CommerceTest.Application.Dtos;
 using CommerceTest.Domain.Entities;
+using CommerceTest.Domain.Entities.VOs;
 using CommerceTeste.Infra.Data.Repositories.Contracts;
 using CommerceTeste.Infra.Services.Contracts;
 using CommerceTeste.Infra.UoW.Contracts;
@@ -23,25 +24,27 @@ namespace CommerceTeste.Infra.Services.Implamentations
 
         public async Task<IEnumerable<ClienteDto>> ObterTodosOsClientes()
         {
-            return _mapper.Map<IEnumerable<ClienteDto>>(_clienteRepository.GetAllAsync());
+            return _mapper.Map<IEnumerable<ClienteDto>>(await _clienteRepository.GetAllAsync());
         }
 
         public async Task<ClienteDto> ObterClientePorId(Guid id)
         {
-            return _mapper.Map<ClienteDto>(_clienteRepository.GetAsync(id));
+            return _mapper.Map<ClienteDto>(await _clienteRepository.GetAsync(id));
         }
 
         public async Task<ClienteDto> SavarRegistroDoCliente(ClienteDto clienteDto)
         {
             var salvarRegistro = _mapper.Map<Cliente>(clienteDto);
 
-            if (salvarRegistro.Nome == clienteDto.Nome)
-                return null;
+            var endereco = new Endereco(clienteDto.Endereco.Rua, clienteDto.Endereco.Numero, clienteDto.Endereco.Complemento,
+                clienteDto.Endereco.Bairro, clienteDto.Endereco.Cidade, clienteDto.Endereco.Estado,
+                clienteDto.Endereco.Cep);
+            salvarRegistro = new Cliente(clienteDto.Nome, clienteDto.DDD, clienteDto.Telefone, endereco, clienteDto.Documento, clienteDto.UserId);
 
             salvarRegistro.CreatedAt = DateTime.Now;
             salvarRegistro.UpdatedAt = DateTime.Now;
             await _clienteRepository.PostAsync(salvarRegistro);
-            await _unitOfWork.CommitAsync();
+            await _unitOfWork.CommitAsync();  
             _unitOfWork.Dispose();
 
             return clienteDto;

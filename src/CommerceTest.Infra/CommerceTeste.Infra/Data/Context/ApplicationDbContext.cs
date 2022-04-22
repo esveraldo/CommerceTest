@@ -6,7 +6,7 @@ namespace CommerceTeste.Infra.Data.Context
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option) : base(option) { }
 
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
@@ -29,8 +29,5 @@ namespace CommerceTeste.Infra.Data.Context
         {
             base.OnConfiguring(optionsBuilder);
         }
-
-
-
     }
 }

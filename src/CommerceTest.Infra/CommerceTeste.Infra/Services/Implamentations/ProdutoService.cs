@@ -5,6 +5,7 @@ using CommerceTeste.Infra.Data.Repositories.Contracts;
 using CommerceTeste.Infra.Services.Contracts;
 using CommerceTeste.Infra.UoW.Contracts;
 
+
 namespace CommerceTeste.Infra.Services.Implamentations
 {
     public class ProdutoService : IProdutoService
@@ -22,12 +23,12 @@ namespace CommerceTeste.Infra.Services.Implamentations
 
         public async Task<IEnumerable<ProdutoDto>> ObterTodosOsProdutos()
         {
-            return _mapper.Map<IEnumerable<ProdutoDto>>(_produtoRepository.GetAllAsync());
+            return _mapper.Map<IEnumerable<ProdutoDto>>(await _produtoRepository.GetAllAsync());
         }
 
         public async Task<ProdutoDto> ObterProdutoPorId(Guid id)
         {
-            return _mapper.Map<ProdutoDto>(_produtoRepository.GetAsync(id));
+            return _mapper.Map<ProdutoDto>(await _produtoRepository.GetAsync(id));
         }
 
         public async Task<ProdutoDto> SalvarRegistroDoProduto(ProdutoDto produtoDto)

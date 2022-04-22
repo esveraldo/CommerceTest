@@ -4,6 +4,8 @@ namespace CommerceTest.Domain.Entities
 {
     public class Produto : Entity
     {
+        public Produto(){}
+
         public Produto(string? nome, string? descricao, decimal? preco)
         {
             Nome = nome;

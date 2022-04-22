@@ -6,12 +6,12 @@ namespace CommerceTest.Domain.Entities
 {
     public class Cliente : Entity
     {
-        protected Cliente() {}
+        public Cliente(){}
 
-        public Cliente(string? nome, string? dDD, string? telefone, Endereco? endereco, EDocumento documento, Guid userId)
+        public Cliente(string? nome, string? ddd, string? telefone, Endereco endereco, EDocumento documento, Guid userId)
         {
             Nome = nome;
-            DDD = dDD;
+            DDD = ddd;
             Telefone = telefone;
             Endereco = endereco;
             Documento = documento;
@@ -22,7 +22,7 @@ namespace CommerceTest.Domain.Entities
         public string? DDD { get; private set; }
         public string? Telefone { get; private set; }
         public Endereco? Endereco { get; private set; }
-        public  EDocumento Documento { get; private set; }
+        public EDocumento Documento { get; private set; }
 
         //EF
         public virtual ICollection<Pedido> Pedidos { get; set; }

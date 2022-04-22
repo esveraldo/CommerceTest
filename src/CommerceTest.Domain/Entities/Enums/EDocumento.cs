@@ -2,7 +2,7 @@
 {
     public enum EDocumento
     {
-        CPF = 1,
-        CNPJ = 2
+        CPF,
+        CNPJ
     }
 }

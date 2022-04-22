@@ -22,12 +22,12 @@ namespace CommerceTeste.Infra.Services.Implamentations
 
         public async Task<IEnumerable<PedidoDto>> ObterTodosOsPedidos()
         {
-            return _mapper.Map<IEnumerable<PedidoDto>>(_pedidoRepository.GetAllAsync());
+            return _mapper.Map<IEnumerable<PedidoDto>>(await _pedidoRepository.GetAllAsync());
         }
 
         public async Task<PedidoDto> ObterPedidoPorId(Guid id)
         {
-            return _mapper.Map<PedidoDto>(_pedidoRepository.GetAsync(id));
+            return _mapper.Map<PedidoDto>(await _pedidoRepository.GetAsync(id));
         }
 
         public async Task<PedidoDto> SalvarRegistroDoPedido(PedidoDto pedidoDto)
