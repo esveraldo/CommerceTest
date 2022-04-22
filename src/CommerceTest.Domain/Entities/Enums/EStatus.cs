@@ -8,10 +8,10 @@ namespace CommerceTest.Domain.Entities.Enums
 {
     public enum EStatus
     {
-        Feito = 1,
-        EmTransporte = 2, 
-        Concluido = 3, 
-        Cancelado = 4,
-        Devolvido = 5
+        Feito,
+        EmTransporte, 
+        Concluido, 
+        Cancelado,
+        Devolvido
     }
 }

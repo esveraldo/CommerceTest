@@ -14,6 +14,10 @@ namespace CommerceTeste.Infra.Extensions
         public static void AddServices(this IServiceCollection service)
         {
             service.AddTransient<IClienteService, ClienteService>();
+            service.AddTransient<IPedidoProdutoService, PedidoProdutoService>();
+            service.AddTransient<IPedidoService, PedidoService>();
+            service.AddTransient<IProdutoService, ProdutoService>();
+            service.AddTransient<IUserService, UserService>();
         }
     }
 }

@@ -22,11 +22,11 @@ namespace CommerceTeste.Infra.Services.Implamentations
 
         public async Task<IEnumerable<PedidoProdutoDto>> ObterTodosOsPedidoProdutos()
         {
-            return _mapper.Map<IEnumerable<PedidoProdutoDto>>(_pedidoProdutoRepository.GetAllAsync());
+            return _mapper.Map<IEnumerable<PedidoProdutoDto>>(await _pedidoProdutoRepository.GetAllAsync());
         }
         public async Task<PedidoProdutoDto> ObterPedidosProdutosPorId(Guid id)
         {
-            return _mapper.Map<PedidoProdutoDto>(_pedidoProdutoRepository.GetAsync(id));
+            return _mapper.Map<PedidoProdutoDto>(await _pedidoProdutoRepository.GetAsync(id));
         }
 
         public async Task<PedidoProdutoDto> SalvarRegistroDoPedidoProduto(PedidoProdutoDto pedidoProdutoDto)

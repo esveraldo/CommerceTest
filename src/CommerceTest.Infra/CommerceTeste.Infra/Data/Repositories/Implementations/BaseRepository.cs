@@ -2,11 +2,6 @@
 using CommerceTeste.Infra.Data.Context;
 using CommerceTeste.Infra.Data.Repositories.Contracts;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CommerceTeste.Infra.Data.Repositories.Implementations
 {
@@ -37,7 +32,9 @@ namespace CommerceTeste.Infra.Data.Repositories.Implementations
 
         public virtual async Task<T> PostAsync(T obj)
         {
-            _context.Entry<T>(obj).State = EntityState.Added;
+            //_context.Entry<T>(obj).State = EntityState.Added;
+            //return obj;
+            _context.Set<T>().Add(obj);
             return obj;
         }
 

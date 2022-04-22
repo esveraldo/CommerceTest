@@ -6,6 +6,8 @@ namespace CommerceTest.Domain.Entities
 {
     public class User : Entity
     {
+        public User(){}
+
         public User(string? userName, string? password)
         {
             UserName = userName;
@@ -16,7 +18,7 @@ namespace CommerceTest.Domain.Entities
         public string? Password { get; private set; }
         [JsonIgnore]
         [NotMapped]
-        public string? ConfirmPassword { get; private set; }
+        public string? ConfirmPassword { get; set; }
 
         public bool VerifyPassword(string pass, string confirmPass)
         {

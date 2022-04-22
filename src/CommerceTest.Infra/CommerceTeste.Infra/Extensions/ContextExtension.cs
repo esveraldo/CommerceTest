@@ -14,8 +14,9 @@ namespace CommerceTeste.Infra.Extensions
     {
         public static void AddContext(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options => 
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")), ServiceLifetime.Transient);
+            services.AddDbContext<ApplicationDbContext>(Options =>
+            Options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
         }
     }
 }

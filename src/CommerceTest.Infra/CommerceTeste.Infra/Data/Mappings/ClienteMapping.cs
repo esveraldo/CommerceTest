@@ -18,10 +18,12 @@ namespace CommerceTeste.Infra.Data.Mappings
                 .HasColumnType("varchar(2)")
                 .IsRequired();
             builder.Property(x => x.Telefone)
-                .HasColumnType("varchar(9)")
+                .HasColumnType("varchar(10)")
                 .IsRequired();
-            
-            builder.OwnsOne(x => x.Endereco)
+
+            //builder.OwnsOne(x => x.Endereco);
+
+            /*builder.OwnsOne(x => x.Endereco)
                 .Property(x => x.Rua)
                 .HasColumnType("varchar(150)")
                 .IsRequired();
@@ -29,6 +31,11 @@ namespace CommerceTeste.Infra.Data.Mappings
             builder.OwnsOne(x => x.Endereco)
                 .Property(x => x.Numero)
                 .HasColumnType("varchar(10)")
+                .IsRequired();
+
+            builder.OwnsOne(x => x.Endereco)
+                .Property(x => x.Complemento)
+                .HasColumnType("varchar(30)")
                 .IsRequired();
 
             builder.OwnsOne(x => x.Endereco)
@@ -49,7 +56,51 @@ namespace CommerceTeste.Infra.Data.Mappings
             builder.OwnsOne(x => x.Endereco)
                 .Property(x => x.Cep)
                 .HasColumnType("varchar(20)")
+                .IsRequired();*/
+
+            builder.OwnsOne(e => e.Endereco, x => {
+                x.Property(p => p.Rua)
+                .HasColumnType("varchar(100)")
+                .HasColumnName("Rua")
+                .HasDefaultValue("")
                 .IsRequired();
+
+                x.Property(p => p.Numero)
+                .HasColumnType("varchar(10)")
+                .HasColumnName("Numero")
+                .HasDefaultValue("")
+                .IsRequired();
+
+                x.Property(p => p.Complemento)
+                .HasColumnType("varchar(20)")
+                .HasColumnName("Complemento")
+                .HasDefaultValue("")
+                .IsRequired();
+
+                x.Property(p => p.Bairro)
+                .HasColumnType("varchar(50)")
+                .HasColumnName("Bairro")
+                .HasDefaultValue("")
+                .IsRequired();
+
+                x.Property(p => p.Cidade)
+                .HasColumnType("varchar(50)")
+                .HasColumnName("Cidade")
+                .HasDefaultValue("")
+                .IsRequired();
+
+                x.Property(p => p.Estado)
+                .HasColumnType("varchar(50)")
+                .HasColumnName("Estado")
+                .HasDefaultValue("")
+                .IsRequired();
+
+                x.Property(p => p.Cep)
+                .HasColumnType("varchar(15)")
+                .HasColumnName("Cep")
+                .HasDefaultValue("")
+                .IsRequired();
+            });
 
             builder.Property(x => x.Documento)
                 .HasConversion(x => x.ToString(), x => (EDocumento)Enum.Parse(typeof(EDocumento), x))

@@ -4,6 +4,8 @@ namespace CommerceTest.Domain.Entities
 {
     public class PedidoProduto : Entity
     {
+        public PedidoProduto(){}
+
         public PedidoProduto(Guid pedidoId, Guid produtoId)
         {
             PedidoId = pedidoId;
@@ -11,8 +13,8 @@ namespace CommerceTest.Domain.Entities
         }
 
         public Pedido? Pedido { get; set; }
-        public Guid PedidoId { get; private set; }
+        public Guid PedidoId { get; set; }
         public Produto? Produto { get; set; }
-        public Guid ProdutoId { get; private set; }
+        public Guid ProdutoId { get; set; }
     }
 }

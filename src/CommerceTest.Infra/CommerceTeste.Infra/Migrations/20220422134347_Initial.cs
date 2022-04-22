@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CommerceTeste.Infra.Migrations
 {
-    public partial class Inital : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,14 +47,14 @@ namespace CommerceTeste.Infra.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Nome = table.Column<string>(type: "varchar(150)", nullable: false),
                     DDD = table.Column<string>(type: "varchar(2)", nullable: false),
-                    Telefone = table.Column<string>(type: "varchar(9)", nullable: false),
-                    Endereco_Rua = table.Column<string>(type: "varchar(150)", nullable: true),
-                    Endereco_Numero = table.Column<string>(type: "varchar(10)", nullable: true),
-                    Endereco_Complemento = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Endereco_Bairro = table.Column<string>(type: "varchar(50)", nullable: true),
-                    Endereco_Cidade = table.Column<string>(type: "varchar(20)", nullable: true),
-                    Endereco_Estado = table.Column<string>(type: "varchar(20)", nullable: true),
-                    Endereco_Cep = table.Column<string>(type: "varchar(20)", nullable: true),
+                    Telefone = table.Column<string>(type: "varchar(10)", nullable: false),
+                    Rua = table.Column<string>(type: "varchar(100)", nullable: false, defaultValue: ""),
+                    Numero = table.Column<string>(type: "varchar(10)", nullable: false, defaultValue: ""),
+                    Complemento = table.Column<string>(type: "varchar(20)", nullable: false, defaultValue: ""),
+                    Bairro = table.Column<string>(type: "varchar(50)", nullable: false, defaultValue: ""),
+                    Cidade = table.Column<string>(type: "varchar(50)", nullable: false, defaultValue: ""),
+                    Estado = table.Column<string>(type: "varchar(50)", nullable: false, defaultValue: ""),
+                    Cep = table.Column<string>(type: "varchar(15)", nullable: false, defaultValue: ""),
                     Documento = table.Column<string>(type: "varchar(30)", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -78,7 +78,7 @@ namespace CommerceTeste.Infra.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DataDoPedido = table.Column<string>(type: "varchar(100)", nullable: false),
                     ValorTotal = table.Column<string>(type: "varchar(100)", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<string>(type: "varchar(10)", nullable: false),
                     Observacoes = table.Column<string>(type: "varchar(100)", nullable: false),
                     ClienteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),

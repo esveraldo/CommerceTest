@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommerceTest.Domain.Entities.Enums;
+using CommerceTest.Domain.Entities.VOs;
 
 namespace CommerceTest.Application.Dtos
 {
     public class ClienteDto
     {
+        public Guid Id { get; set; }
         public string? Nome { get; set; }
         public string? DDD { get; set; }
         public string? Telefone { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
         //Endereco
-        public string? Rua { get; set; }
-        public string? Numero { get; set; }
-        public string? Complemento { get; set; }
-        public string? Bairro { get; set; }
-        public string? Cidade { get; set; }
-        public string? Estado { get; set; }
-        public string? Cep { get; set; }
+        public Endereco Endereco { get; set; }
 
         //Documento
-        public string? Documento { get; private set; }
+        public EDocumento Documento { get; set; }
+
+        //EF
+        public Guid UserId { get; set; }
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommerceTeste.Infra.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220415221815_Inital")]
-    partial class Inital
+    [Migration("20220422134347_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,7 +47,7 @@ namespace CommerceTeste.Infra.Migrations
 
                     b.Property<string>("Telefone")
                         .IsRequired()
-                        .HasColumnType("varchar(9)");
+                        .HasColumnType("varchar(10)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -85,7 +85,7 @@ namespace CommerceTeste.Infra.Migrations
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(10)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -209,30 +209,52 @@ namespace CommerceTeste.Infra.Migrations
 
                             b1.Property<string>("Bairro")
                                 .IsRequired()
-                                .HasColumnType("varchar(50)");
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("varchar(50)")
+                                .HasDefaultValue("")
+                                .HasColumnName("Bairro");
 
                             b1.Property<string>("Cep")
                                 .IsRequired()
-                                .HasColumnType("varchar(20)");
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("varchar(15)")
+                                .HasDefaultValue("")
+                                .HasColumnName("Cep");
 
                             b1.Property<string>("Cidade")
                                 .IsRequired()
-                                .HasColumnType("varchar(20)");
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("varchar(50)")
+                                .HasDefaultValue("")
+                                .HasColumnName("Cidade");
 
                             b1.Property<string>("Complemento")
-                                .HasColumnType("nvarchar(max)");
+                                .IsRequired()
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("varchar(20)")
+                                .HasDefaultValue("")
+                                .HasColumnName("Complemento");
 
                             b1.Property<string>("Estado")
                                 .IsRequired()
-                                .HasColumnType("varchar(20)");
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("varchar(50)")
+                                .HasDefaultValue("")
+                                .HasColumnName("Estado");
 
                             b1.Property<string>("Numero")
                                 .IsRequired()
-                                .HasColumnType("varchar(10)");
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("varchar(10)")
+                                .HasDefaultValue("")
+                                .HasColumnName("Numero");
 
                             b1.Property<string>("Rua")
                                 .IsRequired()
-                                .HasColumnType("varchar(150)");
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("varchar(100)")
+                                .HasDefaultValue("")
+                                .HasColumnName("Rua");
 
                             b1.HasKey("ClienteId");
 

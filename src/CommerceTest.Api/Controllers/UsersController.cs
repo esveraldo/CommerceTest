@@ -1,4 +1,4 @@
-using CommerceTest.Application.Dtos;
+ï»¿using CommerceTest.Application.Dtos;
 using CommerceTeste.Infra.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,26 +7,26 @@ namespace CommerceTest.Api.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Produces("application/json")]
-    public class ClientesController : ControllerBase
+    public class UsersController : ControllerBase
     {
-        private readonly IClienteService _clienteService;
+        private readonly IUserService _userService;
         private readonly ILogger<ClientesController> _logger;
 
-        public ClientesController(ILogger<ClientesController> logger, IClienteService clienteService)
+        public UsersController(IUserService userService, ILogger<ClientesController> logger)
         {
+            _userService = userService;
             _logger = logger;
-            _clienteService = clienteService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ClienteDto>>> ObterTodos()
+        public async Task<ActionResult<IEnumerable<UserDto>>> ObterTodos()
         {
             try
             {
-                var result = await _clienteService.ObterTodosOsClientes();
+                var result = await _userService.ObterTodosOsUsuarios();
 
                 if (result == null)
-                    return NotFound(new { message = "Não foram encontrados registros." });
+                    return NotFound(new { message = "NÃ£o foram encontrados registros." });
 
                 return Ok(result);
             }
@@ -38,14 +38,14 @@ namespace CommerceTest.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ClienteDto>> ObterPorId(Guid id)
+        public async Task<ActionResult<UserDto>> ObterPorId(Guid id)
         {
             try
             {
-                var result = await _clienteService.ObterClientePorId(id);
+                var result = await _userService.ObterUsuarioPorId(id);
 
                 if (result == null)
-                    return NotFound(new { message = "Não foram encontrados registros." });
+                    return NotFound(new { message = "NÃ£o foram encontrados registros." });
 
                 return Ok(result);
             }
@@ -57,11 +57,11 @@ namespace CommerceTest.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ClienteDto>> SalvarRegistro([FromBody] ClienteDto clienteDto)
+        public async Task<ActionResult<UserDto>> SalvarRegistro([FromBody] UserDto userDto)
         {
             try
             {
-                var result = _clienteService.SavarRegistroDoCliente(clienteDto);
+                var result = _userService.SalvarRegistroDoUsuario(userDto);
                 return Ok(result);
             }
             catch (Exception e)
@@ -72,11 +72,11 @@ namespace CommerceTest.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<ClienteDto>> AlterarRegistro([FromBody] ClienteDto clienteDto)
+        public async Task<ActionResult<UserDto>> AlterarRegistro([FromBody] UserDto userDto)
         {
             try
             {
-                var result = _clienteService.AlterarRegistroDoCliente(clienteDto);
+                var result = _userService.AlterarRegistroDoUsuario(userDto);
                 return Ok(result);
             }
             catch (Exception e)
@@ -91,7 +91,7 @@ namespace CommerceTest.Api.Controllers
         {
             try
             {
-                var result = _clienteService.DeletarRegistroDoCliente(id);
+                var result = _userService.DeletarRegistroDoUsuario(id);
 
                 if (result == null)
                 {

@@ -22,17 +22,19 @@ namespace CommerceTeste.Infra.Services.Implamentations
 
         public async Task<IEnumerable<UserDto>> ObterTodosOsUsuarios()
         {
-            return _mapper.Map<IEnumerable<UserDto>>(_userRepository.GetAllAsync());
+            return _mapper.Map<IEnumerable<UserDto>>(await _userRepository.GetAllAsync());
         }
 
         public async Task<UserDto> ObterUsuarioPorId(Guid id)
         {
-            return _mapper.Map<UserDto>(_userRepository.GetAsync(id));
+            return _mapper.Map<UserDto>(await _userRepository.GetAsync(id));
         }
 
         public async Task<UserDto> SalvarRegistroDoUsuario(UserDto userDto)
         {
             var salvarRegistro = _mapper.Map<User>(userDto);
+
+            salvarRegistro = new User(userDto.UserName, userDto.Password);
 
             salvarRegistro.CreatedAt = DateTime.Now;
             salvarRegistro.UpdatedAt = DateTime.Now;
