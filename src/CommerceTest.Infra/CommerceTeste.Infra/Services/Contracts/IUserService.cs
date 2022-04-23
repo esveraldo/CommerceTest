@@ -9,6 +9,8 @@ namespace CommerceTeste.Infra.Services.Contracts
         Task<UserDto> SalvarRegistroDoUsuario(UserDto userDto);
         Task<UserDto> AlterarRegistroDoUsuario(UserDto userDto);
         Task<UserDto> DeletarRegistroDoUsuario(Guid id);
-        
+        bool ValidaSenha(string user, string pass);
+
+
     }
 }
