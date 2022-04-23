@@ -1,7 +1,7 @@
-﻿  
-using AutoMapper;
+﻿using AutoMapper;
 using CommerceTest.Application.Dtos;
 using CommerceTest.Domain.Entities;
+using CommerceTest.Domain.Entities.Enums;
 using CommerceTest.Domain.Entities.VOs;
 using CommerceTeste.Infra.Data.Repositories.Contracts;
 using CommerceTeste.Infra.Services.Contracts;
@@ -39,7 +39,7 @@ namespace CommerceTeste.Infra.Services.Implamentations
             var endereco = new Endereco(clienteDto.Endereco.Rua, clienteDto.Endereco.Numero, clienteDto.Endereco.Complemento,
                 clienteDto.Endereco.Bairro, clienteDto.Endereco.Cidade, clienteDto.Endereco.Estado,
                 clienteDto.Endereco.Cep);
-            salvarRegistro = new Cliente(clienteDto.Nome, clienteDto.DDD, clienteDto.Telefone, endereco, clienteDto.Documento, clienteDto.UserId);
+            salvarRegistro = new Cliente(clienteDto.Nome, clienteDto.DDD, clienteDto.Telefone, endereco, (EDocumento)clienteDto.DocumentoDto, clienteDto.UserId);
 
             salvarRegistro.CreatedAt = DateTime.Now;
             salvarRegistro.UpdatedAt = DateTime.Now;

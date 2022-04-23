@@ -1,5 +1,5 @@
-﻿using CommerceTest.Domain.Entities.Enums;
-using CommerceTest.Domain.Entities.VOs;
+﻿using CommerceTest.Application.Dtos.Enums;
+using CommerceTest.Application.Dtos.VOsDto;
 
 namespace CommerceTest.Application.Dtos
 {
@@ -13,10 +13,10 @@ namespace CommerceTest.Application.Dtos
         public DateTime UpdatedAt { get; set; }
 
         //Endereco
-        public Endereco Endereco { get; set; }
+        public EnderecoDto Endereco { get; set; }
 
         //Documento
-        public EDocumento Documento { get; set; }
+        public EDocumentoDto DocumentoDto { get; set; }
 
         //EF
         public Guid UserId { get; set; }

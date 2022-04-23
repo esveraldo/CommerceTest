@@ -33,7 +33,7 @@ namespace CommerceTeste.Infra.Services.Implamentations
         public async Task<UserDto> SalvarRegistroDoUsuario(UserDto userDto)
         {
             var salvarRegistro = _mapper.Map<User>(userDto);
-
+ 
             salvarRegistro = new User(userDto.UserName, userDto.Password);
 
             salvarRegistro.CreatedAt = DateTime.Now;
@@ -66,6 +66,15 @@ namespace CommerceTeste.Infra.Services.Implamentations
             _unitOfWork.Dispose();
 
             return null;
+        }
+
+        public bool ValidaSenha(string user, string pass)
+        {
+            if (user != pass)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

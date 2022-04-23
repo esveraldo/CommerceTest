@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 namespace CommerceTest.Domain.Entities
 {
     public class User : Entity
-    {
+    { 
         public User(){}
 
         public User(string? userName, string? password)
@@ -19,15 +19,6 @@ namespace CommerceTest.Domain.Entities
         [JsonIgnore]
         [NotMapped]
         public string? ConfirmPassword { get; set; }
-
-        public bool VerifyPassword(string pass, string confirmPass)
-        {
-            if (pass == confirmPass )
-            {
-                return true;
-            }
-            return false;
-        }
 
         //EF
 
