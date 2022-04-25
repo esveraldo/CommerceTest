@@ -11,16 +11,16 @@ namespace CommerceTeste.Infra.Data.Context
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
-        public DbSet<PedidoProduto> PedidoProdutos { get; set; }    
         public DbSet<User> Users { get; set; }
+        public DbSet<PedidoProduto> PedidoProdutos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new PedidoProdutoMapping());
             modelBuilder.ApplyConfiguration(new ClienteMapping());
             modelBuilder.ApplyConfiguration(new PedidoMapping());
             modelBuilder.ApplyConfiguration(new ProdutoMapping());
             modelBuilder.ApplyConfiguration(new UserMapping());
+            modelBuilder.ApplyConfiguration(new PedidoProdutoMapping());
 
             base.OnModelCreating(modelBuilder);
         }

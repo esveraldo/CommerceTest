@@ -34,13 +34,15 @@ namespace CommerceTeste.Infra.Data.Repositories.Implementations
         {
             //_context.Entry<T>(obj).State = EntityState.Added;
             //return obj;
-            _context.Set<T>().Add(obj);
+            _context.Set<T>().AddRange(obj);
             return obj;
         }
 
         public virtual async Task<T> PutAsync(T obj)
         {
-            _context.Entry<T>(obj).State = EntityState.Modified;
+            //_context.Entry<T>(obj).State = EntityState.Modified;
+            //return obj;
+            _context.Set<T>().Update(obj);
             return obj;
         }
 

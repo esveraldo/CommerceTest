@@ -48,13 +48,13 @@ namespace CommerceTeste.Infra.Migrations
                     Nome = table.Column<string>(type: "varchar(150)", nullable: false),
                     DDD = table.Column<string>(type: "varchar(2)", nullable: false),
                     Telefone = table.Column<string>(type: "varchar(10)", nullable: false),
-                    Rua = table.Column<string>(type: "varchar(100)", nullable: false, defaultValue: ""),
-                    Numero = table.Column<string>(type: "varchar(10)", nullable: false, defaultValue: ""),
-                    Complemento = table.Column<string>(type: "varchar(20)", nullable: false, defaultValue: ""),
-                    Bairro = table.Column<string>(type: "varchar(50)", nullable: false, defaultValue: ""),
-                    Cidade = table.Column<string>(type: "varchar(50)", nullable: false, defaultValue: ""),
-                    Estado = table.Column<string>(type: "varchar(50)", nullable: false, defaultValue: ""),
-                    Cep = table.Column<string>(type: "varchar(15)", nullable: false, defaultValue: ""),
+                    Rua = table.Column<string>(type: "varchar(100)", nullable: true, defaultValue: ""),
+                    Numero = table.Column<string>(type: "varchar(10)", nullable: true, defaultValue: ""),
+                    Complemento = table.Column<string>(type: "varchar(20)", nullable: true, defaultValue: ""),
+                    Bairro = table.Column<string>(type: "varchar(50)", nullable: true, defaultValue: ""),
+                    Cidade = table.Column<string>(type: "varchar(50)", nullable: true, defaultValue: ""),
+                    Estado = table.Column<string>(type: "varchar(50)", nullable: true, defaultValue: ""),
+                    Cep = table.Column<string>(type: "varchar(15)", nullable: true, defaultValue: ""),
                     Documento = table.Column<string>(type: "varchar(30)", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -96,38 +96,11 @@ namespace CommerceTeste.Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PedidoProduto",
-                columns: table => new
-                {
-                    PedidosId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProdutosId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PedidoProduto", x => new { x.PedidosId, x.ProdutosId });
-                    table.ForeignKey(
-                        name: "FK_PedidoProduto_Pedidos_PedidosId",
-                        column: x => x.PedidosId,
-                        principalTable: "Pedidos",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PedidoProduto_Produtos_ProdutosId",
-                        column: x => x.ProdutosId,
-                        principalTable: "Produtos",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "PedidoProdutos",
                 columns: table => new
                 {
                     PedidoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProdutoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ProdutoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -153,11 +126,6 @@ namespace CommerceTeste.Infra.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_PedidoProduto_ProdutosId",
-                table: "PedidoProduto",
-                column: "ProdutosId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_PedidoProdutos_ProdutoId",
                 table: "PedidoProdutos",
                 column: "ProdutoId");
@@ -170,9 +138,6 @@ namespace CommerceTeste.Infra.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "PedidoProduto");
-
             migrationBuilder.DropTable(
                 name: "PedidoProdutos");
 

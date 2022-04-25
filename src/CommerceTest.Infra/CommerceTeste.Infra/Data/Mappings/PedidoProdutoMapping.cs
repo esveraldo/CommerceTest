@@ -8,6 +8,8 @@ namespace CommerceTeste.Infra.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<PedidoProduto> builder)
         {
+            builder.ToTable("PedidoProdutos");
+
             builder.HasKey(x => new {x.PedidoId, x.ProdutoId});
 
             builder.Property(x => x.PedidoId)

@@ -15,7 +15,6 @@ namespace CommerceTeste.Infra.Extensions
         {
             services.AddTransient<IClienteRepository, ClienteRepository>();
             services.AddTransient<IPedidoRepository, PedidoRepository>();
-            services.AddTransient<IPedidoProdutoRepository, PedidoProdutoRepository>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
         }

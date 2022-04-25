@@ -1,8 +1,6 @@
-﻿using CommerceTest.Domain.Entities.Base;
-
-namespace CommerceTest.Domain.Entities
+﻿namespace CommerceTest.Domain.Entities
 {
-    public class PedidoProduto : Entity
+    public class PedidoProduto
     {
         public PedidoProduto(){}
 

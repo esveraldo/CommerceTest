@@ -68,9 +68,9 @@ namespace CommerceTeste.Infra.Services.Implamentations
             return null;
         }
 
-        public bool ValidaSenha(string user, string pass)
+        public bool ValidaSenha(string pass, string confirPass)
         {
-            if (user != pass)
+            if (pass != confirPass)
             {
                 return true;
             }

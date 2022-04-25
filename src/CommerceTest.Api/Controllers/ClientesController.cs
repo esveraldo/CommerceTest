@@ -37,12 +37,50 @@ namespace CommerceTest.Api.Controllers
             }
         }
 
+        [HttpGet("clientes-com-pedidos")]
+        public async Task<ActionResult<IEnumerable<ClienteDto>>> ObterTodosComPedido()
+        {
+            try
+            {
+                var result = await _clienteService.ObterTodosOsClientesComPedidos();
+
+                if (result == null)
+                    return NotFound(new { message = "Não foram encontrados registros." });
+
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<ClienteDto>> ObterPorId(Guid id)
         {
             try
             {
                 var result = await _clienteService.ObterClientePorId(id);
+
+                if (result == null)
+                    return NotFound(new { message = "Não foram encontrados registros." });
+
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("cliente-com-pedidos/{id}")]
+        public async Task<ActionResult<ClienteDto>> ObterClienteComPedidoPorId(Guid id)
+        {
+            try
+            {
+                var result = await _clienteService.ObterClientePorIdComPedido(id);
 
                 if (result == null)
                     return NotFound(new { message = "Não foram encontrados registros." });
