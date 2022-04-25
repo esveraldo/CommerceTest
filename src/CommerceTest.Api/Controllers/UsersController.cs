@@ -61,7 +61,7 @@ namespace CommerceTest.Api.Controllers
         {
             try
             {
-                if(_userService.ValidaSenha(userDto.UserName, userDto.Password))
+                if(_userService.ValidaSenha(userDto.ConfirmPassword, userDto.Password))
                     return BadRequest(new { Message = "As senhas não conferem." });
 
                 var result = _userService.SalvarRegistroDoUsuario(userDto);

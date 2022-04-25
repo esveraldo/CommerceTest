@@ -19,6 +19,6 @@ namespace CommerceTest.Domain.Entities
 
         //EF
         public virtual ICollection<Pedido> Pedidos { get; set; }
-        public virtual ICollection<PedidoProduto> PedidosProduto { get; set; }
+        public virtual ICollection<PedidoProduto> PedidoProdutos { get; set; }
     }
 }

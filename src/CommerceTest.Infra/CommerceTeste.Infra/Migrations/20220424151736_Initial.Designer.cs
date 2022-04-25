@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommerceTeste.Infra.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220422134347_Initial")]
+    [Migration("20220424151736_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -109,20 +109,11 @@ namespace CommerceTeste.Infra.Migrations
                     b.Property<Guid>("ProdutoId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("PedidoId", "ProdutoId");
 
                     b.HasIndex("ProdutoId");
 
-                    b.ToTable("PedidoProdutos");
+                    b.ToTable("PedidoProdutos", (string)null);
                 });
 
             modelBuilder.Entity("CommerceTest.Domain.Entities.Produto", b =>
@@ -289,7 +280,7 @@ namespace CommerceTeste.Infra.Migrations
                         .IsRequired();
 
                     b.HasOne("CommerceTest.Domain.Entities.Produto", "Produto")
-                        .WithMany("PedidosProduto")
+                        .WithMany("PedidoProdutos")
                         .HasForeignKey("ProdutoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -326,7 +317,7 @@ namespace CommerceTeste.Infra.Migrations
 
             modelBuilder.Entity("CommerceTest.Domain.Entities.Produto", b =>
                 {
-                    b.Navigation("PedidosProduto");
+                    b.Navigation("PedidoProdutos");
                 });
 
             modelBuilder.Entity("CommerceTest.Domain.Entities.User", b =>

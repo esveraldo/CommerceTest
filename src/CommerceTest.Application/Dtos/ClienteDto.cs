@@ -1,13 +1,17 @@
 ﻿using CommerceTest.Application.Dtos.Enums;
 using CommerceTest.Application.Dtos.VOsDto;
+using System.ComponentModel.DataAnnotations;
 
 namespace CommerceTest.Application.Dtos
 {
     public class ClienteDto
     {
         public Guid Id { get; set; }
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         public string? Nome { get; set; }
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         public string? DDD { get; set; }
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         public string? Telefone { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
@@ -19,6 +23,7 @@ namespace CommerceTest.Application.Dtos
         public EDocumentoDto DocumentoDto { get; set; }
 
         //EF
+        public virtual ICollection<PedidoDto> PedidosDto { get; set; }
         public Guid UserId { get; set; }
     }
 }

@@ -27,9 +27,19 @@ namespace CommerceTeste.Infra.Services.Implamentations
             return _mapper.Map<IEnumerable<ClienteDto>>(await _clienteRepository.GetAllAsync());
         }
 
+        public async Task<IEnumerable<ClienteDto>> ObterTodosOsClientesComPedidos()
+        {
+            return _mapper.Map<IEnumerable<ClienteDto>>(await _clienteRepository.ObterClientesComPedidos());
+        }
+
         public async Task<ClienteDto> ObterClientePorId(Guid id)
         {
             return _mapper.Map<ClienteDto>(await _clienteRepository.GetAsync(id));
+        }
+
+        public async Task<ClienteDto> ObterClientePorIdComPedido(Guid id)
+        {
+            return _mapper.Map<ClienteDto>(await _clienteRepository.ObterClienteComPedidoId(id));
         }
 
         public async Task<ClienteDto> SavarRegistroDoCliente(ClienteDto clienteDto)

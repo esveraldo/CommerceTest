@@ -35,9 +35,6 @@ namespace CommerceTeste.Infra.Services.Implamentations
         {
             var salvarRegistro = _mapper.Map<Produto>(produtoDto);
 
-            if(salvarRegistro.Nome == produtoDto.Nome)
-                return null;
-
             salvarRegistro.CreatedAt = DateTime.Now;
             salvarRegistro.UpdatedAt = DateTime.Now;
             await _produtoRepository.PostAsync(salvarRegistro);

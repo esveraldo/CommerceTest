@@ -25,6 +25,7 @@ namespace CommerceTeste.Infra.AutoMapper
                 .ReverseMap();
                 //.ForMember(dest => dest.Status, source => source.MapFrom(x => x.Status.ToString()))
                 //.ForMember(dest => dest.Id, source => source.MapFrom(x => x.ClienteId.ToString()));
+                CreateMap<Produto, ProdutoDto>().ReverseMap();
 
             CreateMap<User, UserDto>().ReverseMap();
         }
