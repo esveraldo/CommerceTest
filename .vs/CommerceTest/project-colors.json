@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6c013052-1351-4e74-9a01-ce6165ed8bec": {
+      "ProjectGuid": "6c013052-1351-4e74-9a01-ce6165ed8bec",
+      "DisplayName": "CommerceTest.Domain",
+      "ColorIndex": 0
+    },
+    "79b1e0c2-d804-4c7f-bc00-a7727faa8b81": {
+      "ProjectGuid": "79b1e0c2-d804-4c7f-bc00-a7727faa8b81",
+      "DisplayName": "CommerceTest.Application",
+      "ColorIndex": 1
+    },
+    "c95d6e63-399a-4aef-8fb7-ad5c92fc7474": {
+      "ProjectGuid": "c95d6e63-399a-4aef-8fb7-ad5c92fc7474",
+      "DisplayName": "CommerceTest.Infra",
+      "ColorIndex": 2
+    },
+    "8ca4a1de-0f50-42b2-902d-b7f076b047e5": {
+      "ProjectGuid": "8ca4a1de-0f50-42b2-902d-b7f076b047e5",
+      "DisplayName": "CommerceTest.CrosCutting",
+      "ColorIndex": 3
+    },
+    "12d40459-a0e0-4ecc-9687-6031a026d0c8": {
+      "ProjectGuid": "12d40459-a0e0-4ecc-9687-6031a026d0c8",
+      "DisplayName": "CommerceTeste.Infra",
+      "ColorIndex": 4
+    },
+    "e75ebdb3-b3fc-4e51-a13c-17bab405b63c": {
+      "ProjectGuid": "e75ebdb3-b3fc-4e51-a13c-17bab405b63c",
+      "DisplayName": "CommerceTest.Api",
+      "ColorIndex": 5
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Arquivos Diversos",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 6
+}
