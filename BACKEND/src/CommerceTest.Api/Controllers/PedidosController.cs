@@ -53,7 +53,7 @@ namespace CommerceTest.Api.Controllers
         {
             try
             {
-                var result = _pedidoService.SalvarRegistroDoPedido(pedidoDto);
+                var result = await _pedidoService.SalvarRegistroDoPedido(pedidoDto);
                 return Ok(result);
             }
             catch (Exception e)

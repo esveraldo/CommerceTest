@@ -20,10 +20,9 @@ namespace CommerceTest.Application.Dtos
         public EnderecoDto Endereco { get; set; }
 
         //Documento
-        public EDocumentoDto DocumentoDto { get; set; }
+        public EDocumentoDto Documento { get; set; }
 
         //EF
-        public virtual ICollection<PedidoDto> PedidosDto { get; set; }
         public Guid UserId { get; set; }
     }
 }

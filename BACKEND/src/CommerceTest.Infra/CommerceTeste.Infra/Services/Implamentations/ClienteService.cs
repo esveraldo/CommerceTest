@@ -44,15 +44,16 @@ namespace CommerceTeste.Infra.Services.Implamentations
 
         public async Task<ClienteDto> SavarRegistroDoCliente(ClienteDto clienteDto)
         {
-            var salvarRegistro = _mapper.Map<Cliente>(clienteDto);
+            _ = _mapper.Map<Cliente>(clienteDto);
 
             var endereco = new Endereco(clienteDto.Endereco.Rua, clienteDto.Endereco.Numero, clienteDto.Endereco.Complemento,
                 clienteDto.Endereco.Bairro, clienteDto.Endereco.Cidade, clienteDto.Endereco.Estado,
                 clienteDto.Endereco.Cep);
-            salvarRegistro = new Cliente(clienteDto.Nome, clienteDto.DDD, clienteDto.Telefone, endereco, (EDocumento)clienteDto.DocumentoDto, clienteDto.UserId);
-
-            salvarRegistro.CreatedAt = DateTime.Now;
-            salvarRegistro.UpdatedAt = DateTime.Now;
+            Cliente? salvarRegistro = new Cliente(clienteDto.Nome, clienteDto.DDD, clienteDto.Telefone, endereco, (EDocumento)clienteDto.Documento, clienteDto.UserId)
+            {
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
+            };
             await _clienteRepository.PostAsync(salvarRegistro);
             await _unitOfWork.CommitAsync();  
             _unitOfWork.Dispose();

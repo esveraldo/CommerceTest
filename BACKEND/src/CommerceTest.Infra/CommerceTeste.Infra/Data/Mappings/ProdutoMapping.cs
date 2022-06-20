@@ -19,6 +19,12 @@ namespace CommerceTeste.Infra.Data.Mappings
             builder.Property(x => x.Descricao)
                 .HasColumnType("varchar(100)")
                 .IsRequired();
+
+            builder.HasMany(pedidos => pedidos.Pedidos)
+                .WithMany(produtos => produtos.Produtos)
+                .UsingEntity<PedidoProduto>(
+                    fk => fk.HasKey(p => new { p.ProdutoId, p.PedidoId})
+                );
         }
     }
 }

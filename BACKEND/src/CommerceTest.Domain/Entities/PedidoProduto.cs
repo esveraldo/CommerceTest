@@ -2,17 +2,16 @@
 {
     public class PedidoProduto
     {
-        public PedidoProduto(){}
-
         public PedidoProduto(Guid pedidoId, Guid produtoId)
         {
             PedidoId = pedidoId;
             ProdutoId = produtoId;
         }
 
-        public Pedido? Pedido { get; set; }
-        public Guid PedidoId { get; set; }
-        public Produto? Produto { get; set; }
-        public Guid ProdutoId { get; set; }
+        public Guid PedidoId { get; private set; }
+        public Guid ProdutoId { get; private set; }
+
+        public Pedido Pedidos { get; set; }
+        public Produto Produtos { get; set; }
     }
 }
