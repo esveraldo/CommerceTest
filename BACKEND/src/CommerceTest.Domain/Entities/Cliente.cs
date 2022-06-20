@@ -25,7 +25,7 @@ namespace CommerceTest.Domain.Entities
         public EDocumento Documento { get; private set; }
 
         //EF
-        public virtual ICollection<Pedido> Pedidos { get; set; }
+        public virtual ICollection<Pedido>? Pedidos { get; set; }
         public virtual User User { get; set; }
         public virtual Guid UserId { get; private set; }
     }

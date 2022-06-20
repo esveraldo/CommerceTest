@@ -28,6 +28,7 @@ namespace CommerceTeste.Infra.AutoMapper
                 CreateMap<Produto, ProdutoDto>().ReverseMap();
 
             CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<PedidoProduto, PedidoProdutoDto>().ReverseMap();
         }
     }
 }

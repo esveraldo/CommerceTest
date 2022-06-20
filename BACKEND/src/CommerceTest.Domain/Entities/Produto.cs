@@ -9,6 +9,7 @@ namespace CommerceTest.Domain.Entities
             Nome = nome;
             Descricao = descricao;
             Preco = preco;
+            Pedidos = new HashSet<Pedido>();
         }
 
         public string? Nome { get; private set; }
@@ -17,6 +18,5 @@ namespace CommerceTest.Domain.Entities
 
         //EF
         public virtual ICollection<Pedido> Pedidos { get; set; }
-        public virtual ICollection<PedidoProduto> PedidoProdutos { get; set; }
     }
 }

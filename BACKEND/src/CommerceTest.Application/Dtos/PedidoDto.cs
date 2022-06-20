@@ -18,6 +18,8 @@ namespace CommerceTest.Application.Dtos
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         public EStatusDto Status { get; set; }
         public string? Observacoes { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public Guid ClienteId { get; set; }
     }
 }

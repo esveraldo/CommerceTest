@@ -10,13 +10,11 @@ namespace CommerceTeste.Infra.Data.Mappings
         {
             builder.ToTable("PedidoProdutos");
 
-            builder.HasKey(x => new {x.PedidoId, x.ProdutoId});
+            builder.HasKey(x => new { x.PedidoId, x.ProdutoId });
 
-            builder.Property(x => x.PedidoId)
-                .IsRequired();
+            builder.Property(p => p.PedidoId);
+            builder.Property(p => p.ProdutoId);
 
-            builder.Property(x => x.ProdutoId)
-                .IsRequired();
         }
     }
 }
